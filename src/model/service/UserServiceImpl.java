@@ -1,6 +1,7 @@
 package model.service;
 
 import mapper.Mapper;
+import model.User;
 import model.dao.UserDao;
 import model.dao.UserDaoImpl;
 import model.dto.UserDto;
@@ -14,5 +15,20 @@ public class UserServiceImpl implements UserService{
                 .stream()
                 .map(Mapper::mapFromToUserDto)
                 .toList();
+    }
+
+    @Override
+    public void addNewUser(User user) {
+        userDao.addNewUser(user);
+    }
+
+    @Override
+    public void deleteUser(Integer id) {
+        userDao.deleteUser(id);
+    }
+
+    @Override
+    public void updateUser(User user) {
+
     }
 }
